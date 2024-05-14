@@ -1,5 +1,6 @@
 const Sequelize = require('sequelize');
 const _ = require('lodash')
+const mysql2 = require('mysql2');
 const db = {};
 
 const sequelize = new Sequelize(
@@ -9,7 +10,8 @@ const sequelize = new Sequelize(
     {
         host: "mysql-ravish-goyalravish2001-276b.c.aivencloud.com",
         port: 25307,
-        dialect: 'mysql'
+        dialect: 'mysql',
+        dialectModule: mysql2
     }
 )
 

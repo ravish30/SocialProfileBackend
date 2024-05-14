@@ -7,7 +7,7 @@ const router = express.Router();
  * @swagger
  * /auth/login:
  *   post:
- *     summary: Login API
+ *     summary: Login User API
  *     tags: [Authentication]
  *     requestBody:
  *       description: Student object to be added
@@ -43,7 +43,7 @@ router.post('/auth/login', authController.loginUser);
  * @swagger
  * /auth/register:
  *   post:
- *     summary: Login API
+ *     summary: Register User API
  *     tags: [Authentication]
  *     requestBody:
  *       description: Student object to be added
@@ -88,6 +88,26 @@ router.post('/auth/login', authController.loginUser);
  *         description: Something Went Wrong
  */
 router.post('/auth/register', authController.registerUser);
+
+
+/**
+ * @swagger
+ * /auth/logout:
+ *   post:
+ *     summary: Logout User API
+ *     tags: [Authentication]
+ *     responses:
+ *       201:
+ *         description: Successful response
+ *         content:
+ *           application/json:
+ *             example:
+ *               data: {}
+ *       400:
+ *         description: Invalid request
+ *       500:
+ *         description: Something Went Wrong
+ */
 router.post('/auth/logout', checkAuth, authController.logoutUser);
 
 

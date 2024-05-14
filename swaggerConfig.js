@@ -9,10 +9,24 @@ const options = {
       description: 'Social Profile API covered Create, Read, Update, and Delete operations using a Node.js API',
     },
     servers:[
-      {url:'http://localhost:5000/api'}, //you can change you server url
+      {url:'http://localhost:5000/api', description: 'local server'}, //you can change you server url
     ],
+    components: {
+      securitySchemes: {
+        bearerAuth: {
+          type: 'http',
+          in: 'header',
+          name: 'Authorization',
+          description: 'Bearer Token',
+          scheme: 'bearer',
+          bearerFormat: 'JWT',
+        },
+      },
+    },
+    security: {
+      bearerAuth: [],
+    },
   },
-
   apis: ['./routes/*.js'], //you can change you swagger path
 }
 

@@ -5,7 +5,7 @@ exports.checkAuth = async (req, res, next) => {
     if (req.headers.authorization) {
       const token = req.headers.authorization.split(" ")[1];
       const user = jwt.verify(token, 'secret');
-      const userData = await db.sequelize.query(`select * from user where id = ?`, {
+      const userData = await db.sequelize.query(`select * from user where id = ? and status = "1"`, {
         replacements: [user.userId],
         type: db.sequelize.QueryTypes.SELECT
       });

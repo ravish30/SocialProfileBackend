@@ -19,6 +19,10 @@ const authController = {
             return res.status(200).json({ message: 'User Does not Exists', success: false });
         }
 
+        if(existingUser[0].password != password) {
+            return res.status(200).json({ message: 'Incorrect Password', success: false });
+        }
+
         await db.sequelize.query('update user set status = ? where id = ?', {
             replacements: [1, existingUser[0].id],
             type: db.sequelize.QueryTypes.UPDATE

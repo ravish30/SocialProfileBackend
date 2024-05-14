@@ -6,6 +6,8 @@ const app = express();
 
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
+app.use(express.static(path.join(__dirname, './')));
+
 
 const authRoutes = require('./routes/authRoute')
 const userRoutes = require('./routes/userRoute')

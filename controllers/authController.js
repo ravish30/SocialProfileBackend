@@ -16,7 +16,7 @@ const authController = {
         })
 
         if(!existingUser.length) {
-            return res.status(500).json({ message: 'User Does not Exists', success: false });
+            return res.status(200).json({ message: 'User Does not Exists', success: false });
         }
 
         await db.sequelize.query('update user set status = ? where id = ?', {

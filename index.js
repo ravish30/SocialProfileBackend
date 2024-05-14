@@ -17,7 +17,7 @@ const PORT = process.env.PORT;
 app.use(express.json());
 
 app.get('/', (req, res) => {
-    res.send('This is Backend Service. Visit http://localhost:5000/api-docs for APIS')
+    res.send(`This is Backend Service. Visit http://localhost:${PORT}/api-docs for APIS`)
 })
 
 app.use('/api', authRoutes)
